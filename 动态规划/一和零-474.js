@@ -1,4 +1,5 @@
 /**
+ * TODO:看是看懂了，自己写又想不起思路
  * @param {string[]} strs
  * @param {number} m
  * @param {number} n
@@ -9,7 +10,7 @@ let findMaxForm = function (strs, m, n) {
   if (!sl) {
     return 0
   }
-
+  // dp[i][j][s] 表示输入字符串在子区间 [0, s] 能够使用 i 个 0 和 j 个 1 的字符串的最大数量。
   let dp = []
 
   for (let i = 0; i <= m; i++) {

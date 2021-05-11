@@ -30,42 +30,48 @@ var wordBreak = function (s, wordDict) {
  * @param {string[]} wordDict
  * @return {boolean}
  */
-var wordBreak = function (s, wordDict) {
-  let flag = false
-  let str = s
-  let dfs = (string) => {
-    for (var i = 0; i < wordDict.length; i++) {
-      const itemStr = wordDict[i]
-      var reg = new RegExp("^" + itemStr)
-      // console.log(
-      //   "222222222",
-      //   reg,
-      //   string,
-      //   "reg.test(string)===>",
-      //   reg.test(string)
-      // )
-      if (reg.test(string)) {
-        // console.log("itemStr", itemStr, reg, string)
-        let _string = string.slice(itemStr.length)
-        if (_string.length === 0) {
-          flag = true
-          return
-        }
-        // console.log("string", _string)
-        dfs(_string)
-      } else {
-        // dfs(string)
-        // return
-      }
-    }
-  }
+// var wordBreak = function (s, wordDict) {
+//   wordDict = new Set(wordDict)
+//   wordDict = Array.from(wordDict)
 
-  dfs(str)
+//   let flag = false
+//   let str = s
+//   let dfs = (string) => {
+//     for (var i = 0; i < wordDict.length; i++) {
+//       const itemStr = wordDict[i]
+//       var reg = new RegExp("^" + itemStr)
+//       // console.log(
+//       //   "222222222",
+//       //   reg,
+//       //   string,
+//       //   "reg.test(string)===>",
+//       //   reg.test(string)
+//       // )
+//       if (reg.test(string)) {
+//         // console.log("itemStr", itemStr, reg, string)
+//         let _string = string.slice(itemStr.length)
+//         if (_string.length === 0) {
+//           flag = true
+//           return
+//         }
+//         // console.log("string", _string)
+//         dfs(_string)
+//       } else {
+//         // dfs(string)
+//         // return
+//       }
+//     }
+//   }
 
-  return flag
-}
+//   dfs(str)
+
+//   return flag
+// }
 
 // "bb"[("a", "b", "bbb", "bbbb")]
+// "leetcode"
+// ["leet","code"]
+// console.log(wordBreak("bb", ["a", "b", "bbb", "bbbb"]))
 
-// console.log(wordBreak1("bb", ["a", "b", "bbb", "bbbb"]))
-console.log(1111, wordBreak1("cars", ["car", "ca", "rs"]))
+
+console.log(1111, wordBreak("leetcode", ["leet","code"]))
