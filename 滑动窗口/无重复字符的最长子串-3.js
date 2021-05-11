@@ -11,6 +11,7 @@ let lengthOfLongestSubstring = function (str) {
   let max = 0 // 找到的满足条件子串的最长长度
 
   while (left < n) {
+    console.log("left", left, "right", right)
     let nextLetter = str[right + 1]
     if (!freqMap[nextLetter] && nextLetter !== undefined) {
       freqMap[nextLetter] = 1
@@ -19,6 +20,7 @@ let lengthOfLongestSubstring = function (str) {
       freqMap[str[left]] = 0
       left++
     }
+    console.log("-----------left", left, "right", right)
     max = Math.max(max, right - left + 1)
   }
 
