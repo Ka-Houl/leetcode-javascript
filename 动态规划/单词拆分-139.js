@@ -3,10 +3,10 @@
  * @param {string[]} wordDict
  * @return {boolean}
  */
-let wordBreak = function (s, wordDict) {
+var wordBreak = function (s, wordDict) {
   let n = s.length
   if (!n) return true
-
+  // 去重
   let wordSet = new Set(wordDict)
   let dp = []
   dp[0] = true
@@ -23,3 +23,49 @@ let wordBreak = function (s, wordDict) {
 
   return !!dp[n]
 }
+
+/**
+ * 自己写的性能太差了。。。力扣不通过。。。orz
+ * @param {string} s
+ * @param {string[]} wordDict
+ * @return {boolean}
+ */
+var wordBreak = function (s, wordDict) {
+  let flag = false
+  let str = s
+  let dfs = (string) => {
+    for (var i = 0; i < wordDict.length; i++) {
+      const itemStr = wordDict[i]
+      var reg = new RegExp("^" + itemStr)
+      // console.log(
+      //   "222222222",
+      //   reg,
+      //   string,
+      //   "reg.test(string)===>",
+      //   reg.test(string)
+      // )
+      if (reg.test(string)) {
+        // console.log("itemStr", itemStr, reg, string)
+        let _string = string.slice(itemStr.length)
+        if (_string.length === 0) {
+          flag = true
+          return
+        }
+        // console.log("string", _string)
+        dfs(_string)
+      } else {
+        // dfs(string)
+        // return
+      }
+    }
+  }
+
+  dfs(str)
+
+  return flag
+}
+
+// "bb"[("a", "b", "bbb", "bbbb")]
+
+// console.log(wordBreak1("bb", ["a", "b", "bbb", "bbbb"]))
+console.log(1111, wordBreak1("cars", ["car", "ca", "rs"]))
