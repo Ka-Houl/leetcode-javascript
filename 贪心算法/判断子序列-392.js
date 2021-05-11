@@ -64,7 +64,6 @@ var isSubsequence = function (s, t) {
       if (_index === -1) {
         break
       }
-      // if (j === s.length - 1) {
       sFlag += s[j]
       str = str.slice(_index + 1)
       if (sFlag === s) {
