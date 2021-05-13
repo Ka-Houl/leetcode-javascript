@@ -42,12 +42,16 @@ let minJumps = function (arr) {
   let count = 0
   let queue = [0]
   while (queue.length) {
+    console.log("queue", queue, count)
+
     count++
     let len = queue.length
     for (let i = 0; i < len; i++) {
+      console.log("queue111", queue)
       let index = queue.shift()
       // 找到了 由于bfs的特性 此时用的跳跃次数一定是最少的
       if (index === n - 1) {
+        console.log(index, n)
         return count - 1
       }
 
@@ -70,3 +74,5 @@ let minJumps = function (arr) {
   }
   return n
 }
+
+console.log(minJumps([1, 2, 3, 4, 5, 9, 2, 9, 8, 9]))
