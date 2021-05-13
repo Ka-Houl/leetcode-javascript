@@ -26,6 +26,7 @@ let findAnagrams = function (s, p) {
   return res
 }
 
+// 是否全等？
 let isAnagrams = function (windowMap, targetMap) {
   let targetKeys = Object.keys(targetMap)
   for (let targetKey of targetKeys) {
@@ -47,6 +48,8 @@ function addCountToMap(map, str) {
   }
 }
 
+
+// strs 字符串的map次数
 function makeCountMap(strs) {
   let map = {}
   for (let i = 0; i < strs.length; i++) {
@@ -57,3 +60,6 @@ function makeCountMap(strs) {
 }
 
 console.log(findAnagrams("abab", "ab"))
+
+
+console.log(isAnagrams('cab','cab'))

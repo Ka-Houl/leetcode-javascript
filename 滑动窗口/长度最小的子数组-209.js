@@ -33,17 +33,17 @@ var minSubArrayLen = function (target, nums) {
   // }
   let n = nums.length
 
-  let result = 99999999  // Infinity
+  let result = 99999999
   for (var i = 0; i < n; i++) {
     let left = i
     let right = i
     let sumData = 0
     while (sumData < target && right <= n - 1) {
       right++
-      console.log("nums[right]", nums[right])
+      //   console.log("nums[right]", nums[right])
       sumData += nums[right - 1] || 0
     }
-    console.log("sumData", sumData)
+    // console.log("sumData", sumData)
     if (sumData >= target) {
       result = Math.min(right - left, result)
       // console.log("result", result, "right", right, "left", left)
@@ -56,4 +56,4 @@ var minSubArrayLen = function (target, nums) {
 const sum = (arr) => arr.reduce((pre, item) => pre + item, 0)
 
 // console.log(minSubArrayLen(7, [2, 3, 1, 2, 4, 3]))
-console.log(minSubArrayLen(15, [1, 2, 3, 4, 5]))
+console.log(minSubArrayLen(6, [1, 2, 3]))
