@@ -71,4 +71,54 @@ function reverse(head) {
 let node = new ListNode(3)
 node.next = new ListNode(5)
 
+var reverseBetween = function (head, left, right) {
+  console.log('left', left, 'right', right)
+  if (left === right) {
+      return head
+  }
+  let node = head
+  let index = 1
+  let nodeLeftPre = null
+  let nodeLeft = null
+  let nodeLeftNext = null
+  let nodeRightPre = null
+  let nodeRight = null
+  let nodeRightNext = null
+  let flag = false
+  while (index <= right) {
+      if (left === 1) {
+          nodeLeft = node
+          nodeLeftNext = node.next
+          flag = true
+      }
+      else if (index === left - 1) {
+          nodeLeftPre = node
+          nodeLeft = node.next
+          nodeLeftNext = node.next.next
+      }
+      if (index === right - 1) {
+          nodeRight = node.next
+          nodeRightNext = node.next.next
+          nodeRightPre = node
+          if (flag) {
+              nodeRight.next = nodeLeftNext
+              nodeRightPre.next = nodeLeft
+              nodeLeft.next = nodeRightNext
+          } else {
+              nodeLeftPre.next = nodeRight
+              nodeRight.next = nodeLeftNext
+              nodeRightPre.next = nodeLeft
+              nodeLeft.next = nodeRightNext
+          }
+
+      }
+      node = node.next
+      index++
+  }
+  return head
+
+};
+
 console.log(JSON.stringify(reverseBetween(node, 1, 1)))
+
+

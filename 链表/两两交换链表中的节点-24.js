@@ -8,7 +8,7 @@ let swapPairs = function (head) {
       node.next.next = node
       if (tempNextNext) {
         node.next = helper(tempNextNext)
-      }else {
+      } else {
         node.next = null
       }
     }
@@ -25,4 +25,4 @@ node.next = new ListNode(2)
 node.next.next = new ListNode(3)
 node.next.next.next = new ListNode(4)
 
-console.log(swapPairs(node))
+console.log(1111, JSON.stringify(swapPairs(node)))
