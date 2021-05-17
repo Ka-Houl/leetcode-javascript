@@ -1,7 +1,7 @@
 // 力扣超时 卡在第26个用例
 let maxScore = function (cardPoints, k) {
   let n = cardPoints.length
-
+  //创建一个二维 的全为0的数组 0[][]
   let prevTimeChunk = []
   for (let i = 0; i < n; i++) {
     for (let j = i; j < n; j++) {

@@ -46,9 +46,37 @@ var canPartition = function (nums) {
 }
 
 var canPartition = function (nums) {
-  const flag = false
-  console.log(nums)
-  return flag
+  let n = nums.length
+  let sum = nums.reduce((a, b) => a + b)
+  let target = sum / 2
+
+  // 数据不是整数 直接return
+  if (Math.ceil(target) !== target) {
+    return false
+  }
+  let dp = new Array(n)
+  for (let i = 0; i < dp.length; i++) {
+    dp[i] = new Array(target + 1).fill(false)
+  }
+
+  dp[0][nums[0]] = true
+  for (let i = 0; i < dp.length; i++) {
+    console.log(dp[i])
+    dp[i][0] = true
+    if (i >= 1) {
+      for (let j = 0; j < target + 1; j++) {
+        if (j < nums[i]) {
+          dp[i][j] = dp[i - 1][j]
+        } else {
+          dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i]]
+        }
+      }
+    }
+  }
+  return !!dp.find((item) => {
+    return item[target] === true
+  })
+  console.log(dp)
 }
 
 console.log(canPartition([1, 5, 11, 5]))
