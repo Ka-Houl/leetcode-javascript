@@ -8,6 +8,7 @@ let change = function (amount, coins) {
 
   dp[0] = 1;
 
+  // 不同的币种
   for (let coin of coins) {
     for (let i = 1; i <= amount; i++) {
       if (i >= coin) {
