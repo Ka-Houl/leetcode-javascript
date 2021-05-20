@@ -20,14 +20,17 @@ let numSquares = function (n) {
       if (prev < 0) {
         break;
       }
-
+      // console.log(j)
       // 假设i = 10、j = 1 实际上就是在求dp[10 - 1] + 1
       // 也就是凑成 9 的最小次数 再加上 1（也就是 1 这个平方数的次数）
       min = Math.min(min, dp[prev] + 1);
       j++;
     }
+    console.log(i, min);
     dp[i] = min === Infinity ? 0 : min;
   }
 
   return dp[n];
 };
+
+console.log(numSquares(45));
