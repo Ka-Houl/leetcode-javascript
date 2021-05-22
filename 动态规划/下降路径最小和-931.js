@@ -49,7 +49,6 @@ var minFallingPathSum = function (matrix) {
       dp[i][j] = matrix[i][j] + Math.min(left, dp[i + 1][j], right);
     }
   }
-  debugger;
   return Math.min(...dp[0]);
 };
 
