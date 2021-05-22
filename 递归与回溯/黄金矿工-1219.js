@@ -2,7 +2,7 @@
  * @param {number[][]} grid
  * @return {number}
  */
-let getMaximumGold = function (grid) {
+var getMaximumGold = function (grid) {
   let maxY = grid.length
   if (maxY === 0) {
     return 0
